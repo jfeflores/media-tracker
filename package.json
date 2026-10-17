@@ -1,0 +1,60 @@
+{
+  "name": "media-tracker",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "node scripts/build.mjs",
+    "start": "vinext start",
+    "test": "npm run build && npm run test:unit",
+    "test:unit": "node --test tests/*.test.mjs",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit --incremental false",
+    "check:privacy": "node scripts/check-privacy.mjs",
+    "db:generate": "drizzle-kit generate",
+    "owner:hash": "node scripts/owner-hash.mjs",
+    "check": "npm run check:privacy && npm run typecheck && npm run lint && npm test"
+  },
+  "dependencies": {
+    "@aws-sdk/client-dataexchange": "^3.1107.0",
+    "drizzle-orm": "0.45.2",
+    "lucide-react": "^1.31.0",
+    "next": "16.4.2",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "jose": "6.2.12"
+  },
+  "devDependencies": {
+    "@cloudflare/vite-plugin": "1.64.0",
+    "@cloudflare/workers-types": "^5.20260804.1",
+    "@tailwindcss/postcss": "4.2.1",
+    "@types/node": "22.19.19",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "@vitejs/plugin-react": "6.0.5",
+    "@vitejs/plugin-rsc": "0.5.34",
+    "drizzle-kit": "0.31.11",
+    "eslint": "9.39.4",
+    "eslint-config-next": "16.4.2",
+    "react-server-dom-webpack": "19.2.8",
+    "tailwindcss": "4.2.1",
+    "typescript": "5.9.3",
+    "vinext": "0.0.50",
+    "vite": "8.2.1",
+    "wrangler": "4.151.1",
+    "miniflare": "5.20261012.0-beta"
+  },
+  "type": "module",
+  "displayName": "Media Tracker",
+  "license": "MIT",
+  "description": "A private, single-user media tracker with resilient catalog sync, collections, continuation tracking, and data export.",
+  "overrides": {
+    "image-size": "2.0.4",
+    "@esbuild-kit/core-utils": {
+      "esbuild": "^0.25.4"
+    }
+  }
+}
